@@ -26,6 +26,7 @@ class Smock
       end
     end
     self.send :remove_instance_variable, :@stubs
+    return self
   end
   
   ##
@@ -42,7 +43,7 @@ class Smock
   def method_missing nnethod, *arguments
     @stubs[nnethod] ||= Hash.new
     @stubs[nnethod][arguments] = block_given? ? Proc.new : nil
-    self
+    return self
   end
   
   class Exception < Speck::Exception
