@@ -55,7 +55,6 @@ class Smock
   
 end
 Speck.new Smock do
-  Check = Speck::Check
   
   Speck.new Smock.instance_method :mock! do
     Speck.new do
